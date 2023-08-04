@@ -1,0 +1,38 @@
+/* Monsterrat font */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,500&display=swap");
+
+/* Playfair display font */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap");
+
+/* body {
+  font-family: "Montserrat", sans-serif;
+} */
+body{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hero-cont {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(assets/runners_on_track_blacknwhite.jpg);
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  height: 60vh;
+
+  position: relative;
+}
+
+.c-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.l-icon {
+  color: rgb(25, 135, 84);
+
+  width: 35px;
+}
+.serif {
+  font-family: "Playfair Display", serif;
+}
