@@ -36,3 +36,6 @@ body{
 .serif {
   font-family: "Playfair Display", serif;
 }
+.desc p, .desc li{
+  font-size: 1.25rem !important;
+}
