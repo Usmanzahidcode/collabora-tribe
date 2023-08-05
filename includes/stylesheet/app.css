@@ -8,13 +8,13 @@
 /* body {
   font-family: "Montserrat", sans-serif;
 } */
-body{
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
+/*body{*/
+/*  scrollbar-width: none;*/
+/*  -ms-overflow-style: none;*/
+/*}*/
 .hero-cont {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(assets/runners_on_track_blacknwhite.jpg);
+    url(../../assets/runners_on_track_blacknwhite.jpg);
   background-size: cover;
   background-position-x: center;
   background-position-y: center;
