@@ -99,8 +99,11 @@
 		<!-- bootstrap js -->
 		<script
 			src = "includes/bootstrap/js/bootstrap.bundle.js"></script>
-		<script src = "https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
 
+		<!-- Full blown CKeditor, Not needed for this projects, can't support images. -->
+		<!--<script src = "https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>-->
+		
+		<script src = "includes/ckeditor/build/ckeditor.js"></script>
 		<script>
 
 			ClassicEditor
