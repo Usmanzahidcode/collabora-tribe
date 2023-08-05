@@ -7,7 +7,7 @@
 		<link
 			href = "includes/bootstrap/css/bootstrap.css"
 			rel = "stylesheet"/>
-		<link rel = "stylesheet" href = "app.css"/>
+		<link rel = "stylesheet" href = "includes/stylesheet/app.css"/>
 
 		<link
 			rel = "stylesheet"

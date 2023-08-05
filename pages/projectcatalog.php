@@ -5,9 +5,9 @@
 		<meta name = "viewport" content = "width=device-width, initial-scale=1"/>
 		<title>Project catalog | CollaboraTribe</title>
 		<link
-			href = "includes/bootstrap/css/bootstrap.min.css"
+			href = "../includes/bootstrap/css/bootstrap.min.css"
 			rel = "stylesheet"/>
-		<link rel = "stylesheet" href = "app.css"/>
+		<link rel = "stylesheet" href = "../includes/stylesheet/app.css"/>
 
 		<link
 			rel = "stylesheet"
@@ -17,7 +17,7 @@
 	<body>
 
 		<?php
-			include("includes/header.html");
+			include("../includes/header.html");
 		?>
 
 		<div class = "container-fluid py-5 bg-light-subtle">
@@ -63,13 +63,11 @@
 		</div>
 
 		<?php
-			include("includes/footer.html");
+			include("../includes/footer.html");
 		?>
 
 		<!-- bootstrap js -->
 		<script
-			src = "includes/bootstrap/js/bootstrap.bundle.js"></script>
-
-
+			src = "../includes/bootstrap/js/bootstrap.bundle.js"></script>
 	</body>
 </html>

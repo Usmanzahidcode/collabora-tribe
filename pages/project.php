@@ -5,9 +5,9 @@
 		<meta name = "viewport" content = "width=device-width, initial-scale=1"/>
 		<title>Homepage | CollaboraTribe</title>
 		<link
-			href = "includes/bootstrap/css/bootstrap.css"
+			href = "../includes/bootstrap/css/bootstrap.css"
 			rel = "stylesheet"/>
-		<link rel = "stylesheet" href = "app.css"/>
+		<link rel = "stylesheet" href = "../includes/stylesheet/app.css"/>
 
 		<link
 			rel = "stylesheet"
@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<?php
-			include("includes/header.html");
+			include("../includes/header.html");
 		?>
 
 		<div class = "container-md my-3">
@@ -144,12 +144,12 @@
 
 
 		<?php
-			include("includes/footer.html");
+			include("../includes/footer.html");
 		?>
 
 
 		<!-- bootstrap js -->
-		<script src = "includes/bootstrap/js/bootstrap.bundle.js"></script>
+		<script src = "../includes/bootstrap/js/bootstrap.bundle.js"></script>
 
 	</body>
 </html>

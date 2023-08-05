@@ -1,6 +1,6 @@
 <?php
-	include 'includes/connection.php';
-	include 'includes/functions.php';
+	include '../includes/connection.php';
+	include '../includes/functions.php';
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -28,8 +28,11 @@
 
 				$conn->close();
 
+				session_start();
+				$_SESSION['signup_success'] = true;
+
 				//Redirect here to success page that also has link to the login page.
-				//header('location: /signin.php');
+				header('location: /signup-success.php');
 
 			} else {
 				$passwordIsStrong = false;
@@ -49,9 +52,9 @@
 		<meta name = "viewport" content = "width=device-width, initial-scale=1"/>
 		<title>Sign Up! | CollaboraTribe</title>
 		<link
-			href = "includes/bootstrap/css/bootstrap.min.css"
+			href = "../includes/bootstrap/css/bootstrap.min.css"
 			rel = "stylesheet"/>
-		<link rel = "stylesheet" href = "app.css"/>
+		<link rel = "stylesheet" href = "../includes/stylesheet/app.css"/>
 
 		<link
 			rel = "stylesheet"
@@ -60,12 +63,12 @@
 	<body class = "d-flex flex-column vh-100 justify-content-between">
 
 		<?php
-			include("includes/header.html");
+			include("../includes/header.html");
 		?>
 
 		<div class = "container py-4">
 			<div class = "w-100 d-flex justify-content-center align-items-center">
-				<img src = "assets/logo_full_color.png" class = "me-3 pb-3" width = "300px" alt = ""/>
+				<img src = "../assets/logo_full_color.png" class = "me-3 pb-3" width = "300px" alt = ""/>
 			</div>
 
 			<div class = "row px-0">
@@ -146,12 +149,12 @@
 			</div>
 		</div>
 		<?php
-			include("includes/footer.html");
+			include("../includes/footer.html");
 		?>
 
 		<!-- bootstrap js -->
 		<script
-			src = "includes/bootstrap/js/bootstrap.bundle.js"
+			src = "../includes/bootstrap/js/bootstrap.bundle.js"
 		></script>
 
 	</body>
