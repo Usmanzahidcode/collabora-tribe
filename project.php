@@ -14,68 +14,9 @@
 			href = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
 	</head>
 	<body>
-		<nav
-			class = "navbar navbar-expand-md pt-3 pb-3 text-bg-dark"
-			data-bs-theme = "dark">
-			<div class = "container-sm align-items-center">
-				<a class = "navbar-brand" href = "/"
-				><img src = "assets/logo_header.png" width = "150px"
-				/></a>
-
-				<button
-					class = "navbar-toggler"
-					type = "button"
-					data-bs-toggle = "collapse"
-					data-bs-target = "#navbarSupportedContent"
-					aria-controls = "navbarSupportedContent"
-					aria-expanded = "false"
-					aria-label = "Toggle navigation">
-					<span class = "navbar-toggler-icon"></span>
-				</button>
-				<div class = "collapse navbar-collapse w-50 align-items-center"
-				     id = "navbarSupportedContent">
-					<ul class = "navbar-nav mb-lg-0 align-items-center mx-auto fs-5 gap-5">
-						<li class = "nav-item">
-							<a class = "nav-link active" aria-current = "page" href = "#">Home</a>
-						</li>
-						<li class = "nav-item">
-							<a class = "nav-link" href = "#">Project Catalog</a>
-						</li>
-
-						<li class = "nav-item dropdown">
-							<a
-								class = "nav-link dropdown-toggle"
-								href = "#"
-								role = "button"
-								data-bs-toggle = "dropdown"
-								aria-expanded = "false">
-								Usman Zahid
-							</a>
-							<ul class = "dropdown-menu">
-								<li><a class = "dropdown-item" href = "#">Admin</a></li>
-								<li><a class = "dropdown-item" href = "post-project.php">Post Project</a></li>
-								<li><a class = "dropdown-item" href = "#">Sign Out!</a></li>
-								<li><a class = "dropdown-item" href = "signup.php">Sign Up!</a></li>
-								<li><a class = "dropdown-item" href = "signin.php">Sign In!!</a></li>
-								<li>
-									<hr class = "dropdown-divider"/>
-								</li>
-								<li>
-									<a class = "dropdown-item" href = "#">View more!</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					<a
-						class = "btn btn-outline-success"
-						type = "submit"
-						value = "search"
-						class = "nav-link disabled" aria-disabled = "true">
-						Contribute to Platform
-					</a>
-				</div>
-			</div>
-		</nav>
+		<?php
+			include("includes/header.html");
+		?>
 
 		<div class = "container-md my-3">
 			<div class = " border rounded p-4">
@@ -145,17 +86,17 @@
 
 			</div>
 			<h2 class = "mt-3">Recent comments</h2>
-			<div class="row">
-				<div class="col-12">
+			<div class = "row">
+				<div class = "col-12">
 					<div class = "border rounded p-4">
 						<form action = "">
-							<div class="input-group">
-								<span class="input-group-text">Your comment</span>
-								<textarea class="form-control" aria-label="With textarea"
-								          placeholder="Explain how you can be helpful in this project"
-								          rows="1"></textarea>
+							<div class = "input-group">
+								<span class = "input-group-text">Your comment</span>
+								<textarea class = "form-control" aria-label = "With textarea"
+								          placeholder = "Explain how you can be helpful in this project"
+								          rows = "1"></textarea>
 							</div>
-							<input type = "submit" value = "Submit" class="btn btn-success mt-3">
+							<input type = "submit" value = "Submit" class = "btn btn-success mt-3">
 						</form>
 					</div>
 				</div>
@@ -166,7 +107,7 @@
 
 						<p class = "fw-bold fs-5 m-0">Usman Zahid</p>
 						<p class = "badge text-bg-success mb-2"><strong>Email: </strong><span><a href =
-							                                                                         "mailto:developerusman@yahoo.com"
+						                                                                         "mailto:developerusman@yahoo.com"
 						                                                                         class = "text-decoration-none fw-medium text-white">Developerusman@yahoo
 				                                                                             .com</a></span></p>
 						<p class = "fs-5 m-0">Hey, I can work on the security of your project, as your project is
@@ -178,7 +119,7 @@
 
 						<p class = "fw-bold fs-5 m-0">Usman Zahid</p>
 						<p class = "badge text-bg-success mb-2"><strong>Email: </strong><span><a href =
-							                                                                         "mailto:developerusman@yahoo.com"
+						                                                                         "mailto:developerusman@yahoo.com"
 						                                                                         class = "text-decoration-none fw-medium text-white">Developerusman@yahoo
 				                                                                             .com</a></span></p>
 						<p class = "fs-5 m-0">Hey, I can work on the security of your project, as your project is
@@ -190,7 +131,7 @@
 
 						<p class = "fw-bold fs-5 m-0">Usman Zahid</p>
 						<p class = "badge text-bg-success mb-2"><strong>Email: </strong><span><a href =
-							                                                                         "mailto:developerusman@yahoo.com"
+						                                                                         "mailto:developerusman@yahoo.com"
 						                                                                         class = "text-decoration-none fw-medium text-white">Developerusman@yahoo
 				                                                                             .com</a></span></p>
 						<p class = "fs-5 m-0">Hey, I can work on the security of your project, as your project is
@@ -202,41 +143,13 @@
 		</div>
 
 
-		<div class = "container-fluid text-bg-dark py-3">
-			<div class = "container">
-				<footer
-					class = "d-flex flex-wrap justify-content-between align-items-center">
-					<p class = "col-md-4 mb-0">© 2023 Company, Inc</p>
-					<a
-						href = "/"
-						class = "col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-						<img class = "bi me-2" width = "100" src = "assets/logo_header.png"/>
-					</a>
+		<?php
+			include("includes/footer.html");
+		?>
 
-					<ul class = "nav col-md-4 justify-content-end text-light">
-						<li class = "nav-item">
-							<a href = "#" class = "nav-link px-2 text-light">Home</a>
-						</li>
-						<li class = "nav-item">
-							<a href = "#" class = "nav-link px-2 text-light">Features</a>
-						</li>
-						<li class = "nav-item">
-							<a href = "#" class = "nav-link px-2 text-light">Pricing</a>
-						</li>
-						<li class = "nav-item">
-							<a href = "#" class = "nav-link px-2 text-light">FAQs</a>
-						</li>
-						<li class = "nav-item">
-							<a href = "#" class = "nav-link px-2 text-light">About</a>
-						</li>
-					</ul>
-				</footer>
-			</div>
-		</div>
 
 		<!-- bootstrap js -->
-		<script
-			src = "includes/bootstrap/js/bootstrap.bundle.js"></script>
+		<script src = "includes/bootstrap/js/bootstrap.bundle.js"></script>
 
 	</body>
 </html>
