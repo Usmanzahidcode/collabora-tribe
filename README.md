@@ -8,10 +8,36 @@
 
 <h2>How to Contribute</h2>
 <ul>
-  <li>🐞 <strong>Found a Bug?</strong> Report it on our <a href="https://github.com/collaboratribe/issues">GitHub Issues</a> page.</li>
-  <li>🆕 <strong>New Ideas?</strong> Share your innovative ideas in the <a href="https://github.com/collaboratribe/discussions">discussions</a> section.</li>
+  <li>🐞 <strong>Found a Bug?</strong> Report it and make a pull requeste.</li>
+  <li>🆕 <strong>New Ideas?</strong> Share your innovative ideas on our repo.</li>
   <li>📝 <strong>Code Contributions?</strong> Submit a pull request with your improvements.</li>
 </ul>
+
+<h2>Procedure</h2>
+<p>First make a fork on GitHub and then clone the fork locally in git bash:</p>
+
+```bash
+git clone [repo https link]
+```
+<p>Then make a new branch:</p>
+
+```bash
+git checkout -b feature
+```
+<p>Then make and commit the changes:</p>
+
+```bash
+git add .
+git commit -m 'Fixed that bug, or added a bug'
+```
+
+<p>Then push it to the remote repo:</p>
+
+```bash
+git push origin feature
+```
+
+<p>And then make a pull request to feature branch on the main repo, and we will accept it.</p>
 
 <p>Let's Collaborate and Code for a Brighter Tomorrow! ✨</p>
 
