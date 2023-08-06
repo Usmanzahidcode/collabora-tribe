@@ -37,7 +37,7 @@ git commit -m 'Fixed that bug, or added a bug'
 git push origin feature
 ```
 
-<p>And then make a pull request to feature branch on the main repo, and we will accept it.</p>
+<p>And then make a pull request to the feature branch on the main repo, and we will accept it.</p>
 
 <p>Let's Collaborate and Code for a Brighter Tomorrow! ✨</p>
 
