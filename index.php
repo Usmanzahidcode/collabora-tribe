@@ -19,7 +19,7 @@
 		?>
 
 		<div
-			class = "hero-cont text-light d-flex flex-column justify-content-center align-items-center">
+			class = "hero-cont text-light d-flex flex-column justify-content-center align-items-center py-5 pb-lg-0 pt-lg-5">
 			<div
 				class = "container-sm text-center d-flex flex-column justify-content-center align-items-center gap-4 gap-md-3">
 				<h1 class = "serif display-4 fw-bold">
@@ -33,17 +33,20 @@
 					mission is to empower students to unleash their potential, foster a
 					sense of community, and fuel the IT revolution.
 				</p>
-				<a
-					href = "#"
-					type = "button"
-					class = "btn btn-success btn-lg position-relative pb-3">
-					Join Us Now!
+				<a href = "#"
+				   type = "button"
+				   class = "btn btn-success btn-lg position-relative pb-3">
+					Let's Collaborate
 					<span
 						class = "badge rounded-pill text-bg-warning text-decoration-none position-absolute top-100 start-50 translate-middle">
-            Earn Skills
-            <span class = "visually-hidden">unread messages</span>
-          </span>
+                        Sign Up
+                        <span class = "visually-hidden">unread messages</span>
+					</span>
 				</a>
+				<div class="col-8 mt-3 d-none d-lg-block">
+					<img src = "assets/screenshot-projects.png" alt = "" class="w-100 rounded-top">
+				</div>
+
 			</div>
 		</div>
 		<div class = "container-fluid pt-4 bg-light-subtle">
