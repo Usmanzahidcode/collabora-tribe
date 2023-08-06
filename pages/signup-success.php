@@ -35,9 +35,9 @@
 				<div class = "col-4 rounded text-bg-success mx-auto p-3">
 					<?php
 						if ($did_signup === true) {
-							include "includes/templates/signup-success-template.html";
+							include "../includes/templates/signup-success-template.html";
 						} else {
-							include "includes/templates/did-not-signup-template.html";
+							include "../includes/templates/did-not-signup-template.html";
 						}
 					?>
 				</div>

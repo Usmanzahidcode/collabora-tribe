@@ -5,7 +5,7 @@
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-		$name = $_POST['name'];
+		$name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 
 		$email_half = filter_var($_POST['email-half'], FILTER_SANITIZE_EMAIL);
 		// Creating full email
@@ -32,7 +32,7 @@
 				$_SESSION['signup_success'] = true;
 
 				//Redirect here to success page that also has link to the login page.
-				header('location: /signup-success.php');
+				header('location: signup-success.php');
 
 			} else {
 				$passwordIsStrong = false;
