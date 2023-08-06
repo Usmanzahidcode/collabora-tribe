@@ -17,6 +17,7 @@
 		<?php
 			include("includes/header.html");
 		?>
+		<div>Hy</div>
 
 		<div
 			class = "hero-cont text-light d-flex flex-column justify-content-center align-items-center py-5 pb-lg-0 pt-lg-5">
