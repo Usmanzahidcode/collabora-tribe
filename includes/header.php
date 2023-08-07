@@ -1,9 +1,9 @@
 <?php
 	require_once "connection.php";
-	$header_username = "User";
+	$header_username = "Account";
 
 	if (session_status() == PHP_SESSION_ACTIVE) {
-		if (isset($_SESSION['is_logged_in'])) {
+		if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true) {
 			if (isset($_SESSION['name'])) {
 				$header_username = $_SESSION['name'];
 			}
@@ -35,6 +35,17 @@
 		}
 	}
 
+
+	function isActive($url)
+	{
+		$currentURL = $_SERVER['PHP_SELF']; // Use $_SERVER['REQUEST_URI'] if URL rewriting is involved.
+		if ($currentURL === $url) {
+			return 'active';
+		} else {
+			return '';
+		}
+	}
+
 ?>
 <nav
 	class = "navbar navbar-expand-md pt-3 pb-3 text-bg-dark"
@@ -58,21 +69,49 @@
 		     id = "navbarSupportedContent">
 			<ul class = "navbar-nav mb-lg-0 align-items-center mx-auto fs-5 gap-0 gap-lg-5">
 				<li class = "nav-item">
-					<a class = "nav-link active" aria-current = "page" href = "/">Home</a>
+					<a class = "nav-link <?php echo isActive('/index.php'); ?>" aria-current = "page"
+					   href = "/">Home</a>
 				</li>
 				<li class = "nav-item">
-					<a class = "nav-link" href = "/pages/projectcatalog.php">Project Catalog</a>
+					<a class = "nav-link <?php echo isActive('/pages/projectcatalog.php'); ?>"
+					   href = "/pages/projectcatalog.php">Project Catalog</a>
 				</li>
 
 				<li class = "nav-item dropdown">
 					<a
-						class = "nav-link dropdown-toggle"
+						class = "nav-link dropdown-toggle <?php echo isActive('/pages/post-project.php'); ?>"
 						href = "#"
 						role = "button"
 						data-bs-toggle = "dropdown"
 						aria-expanded = "false">
 						<?php echo $header_username; ?>
 					</a>
+					<?php
+						if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true) {
+							echo '<ul class = "dropdown-menu">
+						<li><a class = "dropdown-item" href = "#">Admin</a></li>
+						<li><a class = "dropdown-item" href = "/pages/post-project.php">Post Project</a></li>
+						<li><a class = "dropdown-item" href = "#">Sign Out!</a></li>
+						<li>
+							<hr class = "dropdown-divider"/>
+						</li>
+						<li>
+							<a class = "dropdown-item" href = "#">View more!</a>
+						</li>
+						</ul>';
+						} else {
+							echo '<ul class = "dropdown-menu">
+						<li><a class = "dropdown-item" href = "/pages/signup.php">Sign Up!</a></li>
+						<li><a class = "dropdown-item" href = "/pages/signin.php">Sign In!!</a></li>
+						<li>
+							<hr class = "dropdown-divider"/>
+						</li>
+						<li>
+							<a class = "dropdown-item" href = "#">View more!</a>
+						</li>
+						</ul>';
+						}
+					?>
 					<ul class = "dropdown-menu">
 						<li><a class = "dropdown-item" href = "#">Admin</a></li>
 						<li><a class = "dropdown-item" href = "/pages/post-project.php">Post Project</a></li>
@@ -90,9 +129,8 @@
 			</ul>
 			<a
 				class = "btn btn-outline-success"
-				type = "submit"
-				value = "search"
-				class = "nav-link disabled" aria-disabled = "true">
+				href="https://github.com"
+				type = "button">
 				Contribute to Platform
 			</a>
 		</div>
