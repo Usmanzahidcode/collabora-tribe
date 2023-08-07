@@ -1,10 +1,48 @@
+<?php
+	require_once "connection.php";
+	$header_username = "User";
+
+	if (session_status() == PHP_SESSION_ACTIVE) {
+		if (isset($_SESSION['is_logged_in'])) {
+			if (isset($_SESSION['name'])) {
+				$header_username = $_SESSION['name'];
+			}
+		}
+
+	} else {
+		if (isset($_COOKIE['user_token'])) {
+
+			$cookie_value = $_COOKIE['user_token'];
+
+			$query = "SELECT * FROM users WHERE token = ?";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param('s', $cookie_value);
+
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$stmt->close();
+			$conn->close();
+
+			if ($result->num_rows >= 1) {
+				$row = $result->fetch_assoc();
+
+				session_start();
+
+				$_SESSION['name'] = $row['name'];
+				$header_username = $_SESSION['name'];
+				$_SESSION['is_logged_in'] = true;
+			}
+		}
+	}
+
+?>
 <nav
 	class = "navbar navbar-expand-md pt-3 pb-3 text-bg-dark"
 	data-bs-theme = "dark">
 	<div class = "container-sm align-items-center">
 		<a class = "navbar-brand" href = "/"
 		><img src = "/assets/logo_header.png" width = "150px"
-		/></a>
+			/></a>
 
 		<button
 			class = "navbar-toggler"
@@ -33,7 +71,7 @@
 						role = "button"
 						data-bs-toggle = "dropdown"
 						aria-expanded = "false">
-						Usman Zahid
+						<?php echo $header_username; ?>
 					</a>
 					<ul class = "dropdown-menu">
 						<li><a class = "dropdown-item" href = "#">Admin</a></li>

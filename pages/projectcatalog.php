@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
@@ -18,7 +21,7 @@
 	<body>
 
 		<?php
-			include("../includes/header.html");
+			include("../includes/header.php");
 		?>
 
 		<div class = "container-fluid py-5 bg-light-subtle">
