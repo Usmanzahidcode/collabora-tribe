@@ -1,9 +1,46 @@
+<?php
+	require_once "../includes/connection.php";
+	require_once "../includes/functions.php";
+
+	session_start();
+
+	if ($_SESSION['is_logged_in'] !== true) {
+		if (!isset($_COOKIE['user_token'])) {
+			header('location: signin.php');
+		}
+		else{
+			$_SESSION['is_logged_in'] = true;
+		}
+	}
+
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$title = $_POST['title'];
+		$excerpt = $_POST['excerpt'];
+		$description = $_POST['description'];
+		$sanitized_description = sanitizeCkInput($description);
+		$category = $_POST['category'];
+
+		if (!empty($description)) {
+			$query = "INSERT INTO projects (title, excerpt, description, category) values (?, ?, ?, ?)";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param('ssss', $title, $excerpt, $sanitized_description, $category);
+
+			$stmt->execute();
+			$stmt->close();
+			$conn->close();
+		} else {
+			$desc_is_empty = true;
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
 		<meta charset = "utf-8"/>
 		<meta name = "viewport" content = "width=device-width, initial-scale=1"/>
-		<title>Project catalog | CollaboraTribe</title>
+		<title>Submit new project | CollaboraTribe</title>
+		<link rel = "shortcut icon" href = "../assets/favicon.png" type = "image/png">
 		<link
 			href = "../includes/bootstrap/css/bootstrap.min.css"
 			rel = "stylesheet"/>
@@ -23,6 +60,14 @@
 		<div class = "container-fluid py-5 bg-light-subtle">
 			<div class = "container-sm">
 				<div class = "col-12 col-md-10 mx-auto">
+					<?php
+						if (isset($desc_is_empty)) {
+							echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                             You need to Explain the project before posting.
+                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>';
+						}
+					?>
 					<h1 class = "serif display-5">Post new Project</h1>
 					<p class = " my-3">This is the start of collaboration process.
 					                   Fill the complete form and submit.
@@ -30,27 +75,28 @@
 							class = "badge text-bg-danger p5">Guidelines:</span> Be responsible. Act like you would
 					                   in
 					                   real life. Be as detailed as possible.</p>
-					<form action = "" class = "">
+					<form action = "post-project.php" method = "post">
 						<div class = "input-group mb-3">
 							<span class = "input-group-text" id = "inputGroup-sizing-default">Title</span>
-							<input type = "text" class = "form-control" placeholder = "A self explaining title"
+							<input required name = "title" type = "text" class = "form-control"
+							       placeholder = "A self explaining title"
 							       aria-label = "Sizing example input"
 							       aria-describedby = "inputGroup-sizing-default">
 						</div>
 						<div class = "input-group mb-3">
 							<span class = "input-group-text" id = "inputGroup-sizing-default">Excerpt</span>
-							<input type = "text" class = "form-control" aria-label = "Sizing example input"
+							<input required name = "excerpt" type = "text" class = "form-control"
+							       aria-label = "Sizing example input"
 							       aria-describedby = "inputGroup-sizing-default"
 							       placeholder = "A medium length excerpt that gives basic information about your project.">
 						</div>
-						<textarea type = "text" class = "form-control" aria-label = "Sizing example input"
+						<textarea required name = "description" type = "text" class = "form-control"
+						          aria-label = "Sizing example input"
 						          aria-describedby = "inputGroup-sizing-default" id = "article_editor"
 						          placeholder = "Explain everything about the project. What you are going to make, what kind of talent you are looking for. What will be the role of those required team members. Share the github repo link if you have one. ">
 						</textarea>
-						<select class = "form-select mt-3" aria-label = "Default select example">
-
-							<option selected>...Select category</option>
-
+						<select name = "category" class = "form-select mt-3" aria-label = "Default select example"
+						        required>
 							<option value = "Web Development">Web Development</option>
 							<option value = "Mobile App Development">Mobile App Development</option>
 							<option value = "Desktop Application Development">Desktop Application Development</option>
@@ -102,7 +148,7 @@
 
 		<!-- Full blown CKeditor, Not needed for this projects, can't support images. -->
 		<!--<script src = "https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>-->
-		
+
 		<script src = "../includes/ckeditor/build/ckeditor.js"></script>
 		<script>
 

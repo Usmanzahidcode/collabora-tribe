@@ -72,6 +72,7 @@
 		<meta charset = "utf-8"/>
 		<meta name = "viewport" content = "width=device-width, initial-scale=1"/>
 		<title>Sign In! | CollaboraTribe</title>
+		<link rel = "shortcut icon" href = "../assets/favicon.png" type = "image/png">
 		<link
 			href = "../includes/bootstrap/css/bootstrap.min.css"
 			rel = "stylesheet"/>
