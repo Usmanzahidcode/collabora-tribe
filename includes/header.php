@@ -89,27 +89,27 @@
 					<?php
 						if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true) {
 							echo '<ul class = "dropdown-menu">
-						<li><a class = "dropdown-item" href = "#">Admin</a></li>
-						<li><a class = "dropdown-item" href = "/pages/post-project.php">Post Project</a></li>
-						<li><a class = "dropdown-item" href = "#">Sign Out!</a></li>
-						<li>
-							<hr class = "dropdown-divider"/>
-						</li>
-						<li>
-							<a class = "dropdown-item" href = "#">View more!</a>
-						</li>
-						</ul>';
+									<li><a class = "dropdown-item" href = "#">Admin</a></li>
+									<li><a class = "dropdown-item" href = "/pages/post-project.php">Post Project</a></li>
+									<li><a class = "dropdown-item" href = "#">Sign Out!</a></li>
+									<li>
+										<hr class = "dropdown-divider"/>
+									</li>
+									<li>
+										<a class = "dropdown-item" href = "#">View more!</a>
+									</li>
+									</ul>';
 						} else {
 							echo '<ul class = "dropdown-menu">
-						<li><a class = "dropdown-item" href = "/pages/signup.php">Sign Up!</a></li>
-						<li><a class = "dropdown-item" href = "/pages/signin.php">Sign In!!</a></li>
-						<li>
-							<hr class = "dropdown-divider"/>
-						</li>
-						<li>
-							<a class = "dropdown-item" href = "#">View more!</a>
-						</li>
-						</ul>';
+									<li><a class = "dropdown-item" href = "/pages/signup.php">Sign Up!</a></li>
+									<li><a class = "dropdown-item" href = "/pages/signin.php">Sign In!!</a></li>
+									<li>
+										<hr class = "dropdown-divider"/>
+									</li>
+									<li>
+										<a class = "dropdown-item" href = "#">View more!</a>
+									</li>
+									</ul>';
 						}
 					?>
 					<ul class = "dropdown-menu">
