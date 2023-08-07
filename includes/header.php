@@ -1,5 +1,5 @@
 <?php
-	require_once "connection.php";
+
 	$header_username = "Account";
 
 	if (session_status() == PHP_SESSION_ACTIVE) {
@@ -13,6 +13,8 @@
 		if (isset($_COOKIE['user_token'])) {
 
 			$cookie_value = $_COOKIE['user_token'];
+
+			require_once "connection.php";
 
 			$query = "SELECT * FROM users WHERE token = ?";
 			$stmt = $conn->prepare($query);
@@ -79,7 +81,8 @@
 
 				<li class = "nav-item dropdown">
 					<a
-						class = "nav-link dropdown-toggle <?php echo isActive('/pages/post-project.php'); ?>"
+						class = "nav-link dropdown-toggle <?php echo isActive('/pages/post-project.php'); ?><?php echo isActive('/pages/signout.php.php'); ?>
+						<?php echo isActive('/pages/signup.php'); ?><?php echo isActive('/pages/signin.php'); ?><?php echo isActive('/pages/signup-success.php'); ?>"
 						href = "#"
 						role = "button"
 						data-bs-toggle = "dropdown"
@@ -91,7 +94,7 @@
 							echo '<ul class = "dropdown-menu">
 									<li><a class = "dropdown-item" href = "#">Admin</a></li>
 									<li><a class = "dropdown-item" href = "/pages/post-project.php">Post Project</a></li>
-									<li><a class = "dropdown-item" href = "#">Sign Out!</a></li>
+									<li><a class = "dropdown-item" href = "/pages/signout.php">Sign Out!</a></li>
 									<li>
 										<hr class = "dropdown-divider"/>
 									</li>
@@ -112,24 +115,12 @@
 									</ul>';
 						}
 					?>
-					<ul class = "dropdown-menu">
-						<li><a class = "dropdown-item" href = "#">Admin</a></li>
-						<li><a class = "dropdown-item" href = "/pages/post-project.php">Post Project</a></li>
-						<li><a class = "dropdown-item" href = "#">Sign Out!</a></li>
-						<li><a class = "dropdown-item" href = "/pages/signup.php">Sign Up!</a></li>
-						<li><a class = "dropdown-item" href = "/pages/signin.php">Sign In!!</a></li>
-						<li>
-							<hr class = "dropdown-divider"/>
-						</li>
-						<li>
-							<a class = "dropdown-item" href = "#">View more!</a>
-						</li>
-					</ul>
+
 				</li>
 			</ul>
 			<a
 				class = "btn btn-outline-success"
-				href="https://github.com"
+				href = "https://github.com"
 				type = "button">
 				Contribute to Platform
 			</a>

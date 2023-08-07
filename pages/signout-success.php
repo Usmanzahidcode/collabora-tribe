@@ -1,18 +1,12 @@
 <?php
-	session_start();
-
-	if (isset($_SESSION['signup_success'])) {
-		$did_signup = true;
-	} else {
-		$did_signup = false;
-	}
+	session_start()
 ?>
 <!doctype html>
 <html lang = "en">
 	<head>
 		<meta charset = "UTF-8">
 		<meta name = "viewport"
-		      content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+			  content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
 		<link rel = "shortcut icon" href = "../assets/favicon.png" type = "image/png">
 
@@ -25,39 +19,34 @@
 			rel = "stylesheet"
 			href = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
 
-		<title>Successful Sign Up</title>
+		<title>Sign Out | CollaboraTribe</title>
 	</head>
 	<body class = "vh-100 d-flex flex-column justify-content-between">
 		<?php
-			require_once "../includes/header.php";
+			include("../includes/header.php");
 		?>
-
 		<div class = "container-md">
 			<div class = "row">
-				<!--<div class = "col-4 rounded text-bg-success mx-auto p-3">-->
 				<?php
-
-					if ($did_signup === true) {
+					if ($_SESSION['signout_success'] === true) {
 						echo '<div class = "col-4 rounded text-bg-success mx-auto p-3">	
-								<h1 class = "serif">You have successfully created an account</h1>
+								<h1 class = "serif">You have successfully logged out of your account</h1>
 								<p>
-									Start by signing into that account and apply or post on different projects.
+									You can sign-in again when you want to resume your collaboration journey.
+								</p>
+								<a href = "signin.php" class = "btn btn-outline-warning w-100">Sign In</a>
+
+							</div>';
+					} else {
+						echo '<div class = "col-4 rounded text-bg-success mx-auto p-3">			
+								<h1 class = "serif">You cant sign out if you dont have an account!</h1>
+								<p>
+									Start by creating an account or signing in to an existing account. 
 								</p>
 								<a href = "signin.php" class = "btn btn-outline-warning w-100">Sign In</a>
 							</div>';
-					} else {
-						echo '<div class = "col-4 rounded text-bg-warning mx-auto p-3">
-								<h1 class = "serif">You have not created an account yet!</h1>
-								<p>
-									You might have reached here by mistake.Start by signing up on CollaboraTribe. Or if you have an account then
-									sign into your account.
-								</p>
-								<a href = "signup.php" class = "btn btn-success w-100">Sign Up</a>
-							</div>';
-
 					}
 				?>
-				<!--</div>-->
 			</div>
 		</div>
 
