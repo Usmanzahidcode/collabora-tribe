@@ -28,7 +28,7 @@
 	</head>
 	<body class = "vh-100 d-flex flex-column justify-content-between">
 		<?php
-			include("../includes/header.html");
+			include("../includes/header.php");
 		?>
 
 		<div class = "container-md">

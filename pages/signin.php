@@ -1,6 +1,12 @@
 <?php
 	include "../includes/connection.php";
 	include "../includes/functions.php";
+	
+	session_start();
+
+	if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true){
+		header('location: projectcatalog.php');
+	}
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -22,6 +28,7 @@
 
 				$row = $result->fetch_assoc();
 				$hashed_password = $row['password'];
+				$name = $row['name'];
 
 				if (password_verify($password, $hashed_password)) {
 
@@ -43,6 +50,7 @@
 
 						session_start();
 						$_SESSION['is_logged_in'] = true;
+						$_SESSION['name'] = $name;
 
 						// Redirect
 						header('location: projectcatalog.php');
@@ -51,6 +59,7 @@
 						//start session here
 						session_start();
 						$_SESSION['is_logged_in'] = true;
+						$_SESSION['name'] = $name;
 					}
 				} else {
 					// wrong password
@@ -85,7 +94,7 @@
 	<body class = "d-flex flex-column vh-100 justify-content-between">
 
 		<?php
-			include("../includes/header.html");
+			include("../includes/header.php");
 		?>
 
 		<div class = "container py-4">

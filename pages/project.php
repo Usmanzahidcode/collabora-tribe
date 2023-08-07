@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
@@ -16,7 +19,7 @@
 	</head>
 	<body>
 		<?php
-			include("../includes/header.html");
+			include("../includes/header.php");
 		?>
 
 		<div class = "container-md my-3">

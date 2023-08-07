@@ -2,6 +2,8 @@
 	include '../includes/connection.php';
 	include '../includes/functions.php';
 
+	session_start();
+
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
@@ -64,7 +66,7 @@
 	<body class = "d-flex flex-column vh-100 justify-content-between">
 
 		<?php
-			include("../includes/header.html");
+			include("../includes/header.php");
 		?>
 
 		<div class = "container py-4">
