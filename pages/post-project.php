@@ -16,15 +16,16 @@
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$title = $_POST['title'];
+		$author = $_SESSION['name'];
 		$excerpt = $_POST['excerpt'];
 		$description = $_POST['description'];
 		$sanitized_description = sanitizeCkInput($description);
 		$category = $_POST['category'];
 
 		if (!empty($description)) {
-			$query = "INSERT INTO projects (title, excerpt, description, category) values (?, ?, ?, ?)";
+			$query = "INSERT INTO projects (title, author, excerpt, description, category) values (?, ?, ?, ?, ?)";
 			$stmt = $conn->prepare($query);
-			$stmt->bind_param('ssss', $title, $excerpt, $sanitized_description, $category);
+			$stmt->bind_param('sssss', $title, $author, $excerpt, $sanitized_description, $category);
 
 			$stmt->execute();
 			$stmt->close();

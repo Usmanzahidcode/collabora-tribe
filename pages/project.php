@@ -1,12 +1,28 @@
 <?php
 	session_start();
+
+	require_once "../includes/connection.php";
+
+	$id = $_GET['id'];
+
+	$query = "SELECT * FROM projects WHERE id = ?";
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param('i', $id);
+	$stmt->execute();
+
+
+	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
+
+	$stmt->close();
+	$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
 		<meta charset = "utf-8"/>
 		<meta name = "viewport" content = "width=device-width, initial-scale=1"/>
-		<title>Homepage | CollaboraTribe</title>
+		<title><?php echo $row['title']; ?></title>
 		<link rel = "shortcut icon" href = "../assets/favicon.png" type = "image/png">
 		<link
 			href = "../includes/bootstrap/css/bootstrap.css"
@@ -24,67 +40,12 @@
 
 		<div class = "container-md my-3">
 			<div class = " border rounded p-4">
-				<p class = "badge text-bg-success m-0">Web Development</p>
-				<h1 class = "serif display-6 fw-bold my-3">A web app using nodejs for a university to manage
-				                                           assignments</h1>
-				<p class = "m-0"><strong>Author: </strong><span class = "fst-italic">Usman Zahid</span></p>
-				<p class = "fst-italic mt-0">Posted on: 10 july 2023</p>
+				<p class = "badge text-bg-success m-0"><?php echo $row['category']; ?></p>
+				<h1 class = "serif display-6 fw-bold my-3"><?php echo $row['title']; ?></h1>
+				<p class = "m-0"><strong>Author: </strong><span class = "fst-italic"><?php echo $row['author']; ?></span></p>
+				<p class = "fst-italic mt-0">Posted on: <?php echo $row['date']; ?></p>
 				<div class = "desc">
-					<h1>Heading 1 test</h1>
-					<p class = "fs-5">Collaboration is essential for success in today's interconnected world. When
-					                  individuals come
-					                  together, combining their unique skills and knowledge, they create a powerful
-					                  force for
-					                  innovation
-					                  and progress. Collaborative efforts foster creativity, allowing diverse
-					                  perspectives to merge and
-					                  form novel solutions to complex problems. By sharing resources and pooling
-					                  expertise, teams can
-					                  accomplish tasks that would be difficult or impossible for individuals alone.
-					                  Through open
-					                  communication and mutual respect, collaboration builds trust among team members,
-					                  encouraging a
-					                  supportive and positive working environment. Successful collaboration enables
-					                  individuals to earn
-					                  reputation and recognition within the community, establishing themselves as
-					                  valuable
-					                  contributors.
-					                  Celebrating achievements as a team reinforces motivation and fosters a culture of
-					                  continuous
-					                  improvement. Embracing collaboration empowers individuals to face challenges
-					                  together, navigating
-					                  obstacles with combined strength and adaptability. Ultimately, collaboration not
-					                  only benefits
-					                  the
-					                  individuals involved but also drives collective progress toward shared goals.</p>
-					<h2>Heading 2 test</h2>
-					<ol>
-						<li>Earn Reputation</li>
-						<li>Add Value</li>
-						<li>Promote Diversity</li>
-						<li>Foster Innovation</li>
-						<li>Enhance Efficiency</li>
-					</ol>
-
-
-					<h3>Heading 3 test</h3>
-					<p>Each list item represents a crucial aspect of effective collaboration. "Earn Reputation" refers
-					   to
-					   the recognition individuals receive within the community for their valuable contributions to
-					   collaborative efforts. Collaboration allows individuals to showcase their expertise and gain
-					   respect
-					   among peers, strengthening their professional reputation. Furthermore, collaboration enables team
-					   members to "Add Value" by bringing their unique perspectives and skills to the table, enriching
-					   the
-					   overall quality of the project. A collaborative environment promotes inclusivity, "Promoting
-					   Diversity" of ideas and approaches, leading to more comprehensive and well-rounded solutions.
-					   "Foster
-					   Innovation" highlights how collaboration sparks creativity and inspires breakthrough ideas that
-					   may
-					   not have emerged individually. Lastly, collaboration "Enhances Efficiency" by pooling resources
-					   and
-					   skills, streamlining the process, and accomplishing tasks more effectively. By embracing these
-					   principles, teams can achieve remarkable outcomes and maximize the benefits of collaboration.</p>
+					<?php echo $row['description']; ?>
 				</div>
 
 
