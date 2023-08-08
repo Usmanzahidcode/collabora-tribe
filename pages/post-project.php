@@ -88,7 +88,7 @@
 							<input required name = "excerpt" type = "text" class = "form-control"
 							       aria-label = "Sizing example input"
 							       aria-describedby = "inputGroup-sizing-default"
-							       placeholder = "A medium length excerpt that gives basic information about your project.">
+							       placeholder = "A medium length excerpt that gives basic information about your project." minlength="250" maxlength="500">
 						</div>
 						<textarea required name = "description" type = "text" class = "form-control"
 						          aria-label = "Sizing example input"
