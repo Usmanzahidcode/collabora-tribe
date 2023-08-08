@@ -4,7 +4,7 @@
 
 	session_start();
 
-	if ($_SESSION['is_logged_in'] !== true) {
+	if (!isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] !== true){
 		if (!isset($_COOKIE['user_token'])) {
 			header('location: signin.php');
 		}
