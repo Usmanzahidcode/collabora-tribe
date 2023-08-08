@@ -52,9 +52,7 @@
 			?>
 
 			<!-- bootstrap js -->
-			<script
-				src = "../includes/bootstrap/js/bootstrap.bundle.js"
-			></script>
+			<script src = "../includes/bootstrap/js/bootstrap.bundle.js"></script>
 		</body>
 	</html>
 
