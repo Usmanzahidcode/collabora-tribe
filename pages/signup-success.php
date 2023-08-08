@@ -34,30 +34,27 @@
 
 			<div class = "container-md">
 				<div class = "row">
-					<!--<div class = "col-4 rounded text-bg-success mx-auto p-3">-->
 					<?php
-
-						if ($did_signup === true) {
-							echo '<div class = "col-4 rounded text-bg-success mx-auto p-3">	
+						if ($did_signup === true) :
+							?>
+							<div class = "col-4 rounded text-bg-success mx-auto p-3">
 								<h1 class = "serif">You have successfully created an account</h1>
 								<p>
 									Start by signing into that account and apply or post on different projects.
 								</p>
 								<a href = "signin.php" class = "btn btn-outline-warning w-100">Sign In</a>
-							</div>';
-						} else {
-							echo '<div class = "col-4 rounded text-bg-warning mx-auto p-3">
+							</div>
+						<?php else: ?>
+							<div class = "col-4 rounded text-bg-warning mx-auto p-3">
 								<h1 class = "serif">You have not created an account yet!</h1>
 								<p>
-									You might have reached here by mistake.Start by signing up on CollaboraTribe. Or if you have an account then
+									You might have reached here by mistake.Start by signing up on CollaboraTribe. Or if
+									you have an account
+									then
 									sign into your account.
 								</p>
 								<a href = "signup.php" class = "btn btn-success w-100">Sign Up</a>
-							</div>';
-
-						}
-					?>
-					<!--</div>-->
+							</div><?php endif; ?>
 				</div>
 			</div>
 
