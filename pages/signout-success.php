@@ -1,5 +1,6 @@
 <?php
-	session_start()
+	session_start();
+	$_SESSION = array();
 ?>
 <!doctype html>
 <html lang = "en">
