@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$_SESSION = array();
+	unset($_SESSION['signout_success']);
 ?>
 <!doctype html>
 <html lang = "en">
