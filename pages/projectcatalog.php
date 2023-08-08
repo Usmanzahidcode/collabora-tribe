@@ -55,22 +55,22 @@
 							                                                                                      Now</a>
 						</div>
 					</div>
-					<?php
-						foreach ($result as $row) {
-							echo '<div
-									class = "row g-0 gap-4 border rounded overflow-hidden flex-md-row-reverse mb-4 shadow-sm h-md-250 position-relative">
-									<div class = "col p-4 d-flex flex-column position-static gap-2 align-items-start">
-									<strong class = "d-inline-block mb-0 text-success fs-6">'. $row['category'] .'</strong>
-									<h3 class = "mb-0 fs-1 serif fw-bold">'. $row['title'] .'</h3>
-									<p class = "fs-5 mb-2">
-									'. $row['excerpt'] .'
-									</p>
-									<a href = "project.php?id='. $row['id'] .'" class = "stretched-link text-decoration-none fw-medium btn btn-success">Apply
-							                                                                                      Now</a>
-									</div>
-									</div>';
-						}
-					?>
+
+					<?php foreach ($result as $row): ?>
+						<div
+							class = "row g-0 gap-4 border rounded overflow-hidden flex-md-row-reverse mb-4 shadow-sm h-md-250 position-relative">
+							<div class = "col p-4 d-flex flex-column position-static gap-2 align-items-start">
+								<strong class = "d-inline-block mb-0 text-success fs-6"><?php echo $row['category']?></strong>
+								<h3 class = "mb-0 fs-1 serif fw-bold"><?php echo $row['title']?></h3>
+								<p class = "fs-5 mb-2">
+									<?php echo $row['excerpt']?>
+								</p>
+								<a href = "project.php?id='<?php echo $row['id']?>"
+								   class = "stretched-link text-decoration-none fw-medium btn btn-success">Apply
+								                                                                           Now</a>
+							</div>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
