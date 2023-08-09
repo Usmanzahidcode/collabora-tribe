@@ -65,7 +65,7 @@
 								<p class = "fs-5 mb-2">
 									<?php echo $row['excerpt']?>
 								</p>
-								<a href = "project.php?id='<?php echo $row['id']?>"
+								<a href = "project.php?id=<?php echo $row['id']?>"
 								   class = "stretched-link text-decoration-none fw-medium btn btn-success">Apply
 								                                                                           Now</a>
 							</div>
