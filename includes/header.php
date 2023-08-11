@@ -60,16 +60,19 @@
 		<button
 			class = "navbar-toggler"
 			type = "button"
-			data-bs-toggle = "collapse"
+			data-bs-toggle = "offcanvas"
 			data-bs-target = "#navbarSupportedContent"
 			aria-controls = "navbarSupportedContent"
 			aria-expanded = "false"
 			aria-label = "Toggle navigation">
 			<span class = "navbar-toggler-icon"></span>
 		</button>
-		<div class = "collapse navbar-collapse w-50 align-items-center"
-		     id = "navbarSupportedContent">
-			<ul class = "navbar-nav mb-lg-0 align-items-center mx-auto fs-5 gap-0 gap-lg-5">
+		<div
+			class = "offcanvas offcanvas-start d-flex flex-column
+			flex-md-row my-md-0 w-50 align-items-center justify-content-center justify-content-md-between
+			px-4 px-md-0 w-auto"
+			id = "navbarSupportedContent">
+			<ul class = "navbar-nav mb-lg-0 align-items-center mx-auto fs-5 gap-0 gap-lg-5 mb-3 mb-md-0">
 				<li class = "nav-item">
 					<a class = "nav-link <?php echo isActive('/index.php'); ?>" aria-current = "page"
 					   href = "/">Home</a>
@@ -91,7 +94,7 @@
 					</a>
 					<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true) : ?>
 						<ul class = "dropdown-menu">
-							<li><a class = "dropdown-item" href = "#">Admin</a></li>
+							<li><a class = "dropdown-item" href = "/pages/admin.php">Admin</a></li>
 							<li><a class = "dropdown-item" href = "/pages/post-project.php">Post Project</a></li>
 							<li><a class = "dropdown-item" href = "/pages/signout.php">Sign Out!</a></li>
 							<li>
