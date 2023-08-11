@@ -51,6 +51,7 @@
 						session_start();
 						$_SESSION['is_logged_in'] = true;
 						$_SESSION['name'] = $name;
+						$_SESSION['email'] = $email_full;
 
 						// Redirect
 						header('location: projectcatalog.php');
@@ -60,6 +61,9 @@
 						session_start();
 						$_SESSION['is_logged_in'] = true;
 						$_SESSION['name'] = $name;
+						$_SESSION['email'] = $email_full;
+
+						header('location: projectcatalog.php');
 					}
 				} else {
 					// wrong password

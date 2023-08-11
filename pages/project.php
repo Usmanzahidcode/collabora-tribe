@@ -42,7 +42,8 @@
 			<div class = " border rounded p-4">
 				<p class = "badge text-bg-success m-0"><?php echo $row['category']; ?></p>
 				<h1 class = "serif display-6 fw-bold my-3"><?php echo $row['title']; ?></h1>
-				<p class = "m-0"><strong>Author: </strong><span class = "fst-italic"><?php echo $row['author']; ?></span></p>
+				<p class = "m-0"><strong>Author: </strong><span
+						class = "fst-italic"><?php echo $row['author']; ?></span></p>
 				<p class = "fst-italic mt-0">Posted on: <?php echo $row['date']; ?></p>
 				<div class = "desc">
 					<?php echo $row['description']; ?>
@@ -54,20 +55,21 @@
 			<div class = "row">
 				<div class = "col-12">
 					<div class = "border rounded p-4">
-						<form action = "">
+						<form action = ""
+						      class = "d-flex flex-column flex-md-row gap-3 justify-content-between align-items-start align-items-md-center">
 							<div class = "input-group">
-								<span class = "input-group-text">Your comment</span>
-								<textarea class = "form-control" aria-label = "With textarea"
+								<span class = "input-group-text d-none d-sm-block">Your comment</span>
+								<textarea class = "form-control rounded-end" aria-label = "With textarea"
 								          placeholder = "Explain how you can be helpful in this project"
 								          rows = "1"></textarea>
 							</div>
-							<input type = "submit" value = "Submit" class = "btn btn-success mt-3">
+							<input type = "submit" value = "Submit" class = "btn btn-success">
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class = "row">
-				<div class = "col-6 mt-4">
+				<div class = "col-12 col-md-6 mt-4">
 					<div class = "border rounded p-4">
 
 						<p class = "fw-bold fs-5 m-0">Usman Zahid</p>
@@ -79,7 +81,7 @@
 						                      going to be large scale, it needs good security for users. Thanks</p>
 					</div>
 				</div>
-				<div class = "col-6 mt-4">
+				<div class = "col-12 col-md-6 mt-4">
 					<div class = "border rounded p-4">
 
 						<p class = "fw-bold fs-5 m-0">Usman Zahid</p>
@@ -91,7 +93,7 @@
 						                      going to be large scale, it needs good security for users. Thanks</p>
 					</div>
 				</div>
-				<div class = "col-6 mt-4">
+				<div class = "col-12 col-md-6 mt-4">
 					<div class = "border rounded p-4">
 
 						<p class = "fw-bold fs-5 m-0">Usman Zahid</p>
