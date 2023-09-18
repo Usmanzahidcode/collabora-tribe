@@ -30,12 +30,22 @@
 }
 .l-icon {
   color: rgb(25, 135, 84);
-
   width: 35px;
+}
+.a-icon {
+  width: 30px;
 }
 .serif {
   font-family: "Playfair Display", serif;
 }
-.desc p, .desc li{
+.desc p,
+.desc li {
   font-size: 1.25rem !important;
+}
+
+.tab-cont button {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
 }

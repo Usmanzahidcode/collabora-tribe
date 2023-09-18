@@ -29,6 +29,7 @@
 				$row = $result->fetch_assoc();
 				$hashed_password = $row['password'];
 				$name = $row['name'];
+				$user_id = $row['id'];
 
 				if (password_verify($password, $hashed_password)) {
 
@@ -52,6 +53,7 @@
 						$_SESSION['is_logged_in'] = true;
 						$_SESSION['name'] = $name;
 						$_SESSION['email'] = $email_full;
+						$_SESSION['user_id'] = $user_id;
 
 						// Redirect
 						header('location: projectcatalog.php');
@@ -62,6 +64,7 @@
 						$_SESSION['is_logged_in'] = true;
 						$_SESSION['name'] = $name;
 						$_SESSION['email'] = $email_full;
+						$_SESSION['user_id'] = $user_id;
 
 						header('location: projectcatalog.php');
 					}

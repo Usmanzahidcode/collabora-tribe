@@ -32,6 +32,7 @@
 
 				$_SESSION['name'] = $row['name'];
 				$_SESSION['is_logged_in'] = true;
+				$_SESSION['user_id'] = $row['id'];
 				$header_username = $_SESSION['name'];
 			}
 		}
@@ -47,6 +48,7 @@
 			return '';
 		}
 	}
+
 
 ?>
 <nav
