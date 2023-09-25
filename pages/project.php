@@ -69,9 +69,9 @@
 
 		<div class = "container-md my-3">
 			<div class = " border rounded p-4">
-				<p class = "badge text-bg-success m-0">
-					<?php echo $row['category']; ?>
-				</p>
+				<h4>
+					<span class="badge text-bg-success"><?php echo $row['category']; ?></span>
+				</h4>
 				<h1 class = "serif display-6 fw-bold my-3">
 					<?php echo $row['title']; ?>
 				</h1>

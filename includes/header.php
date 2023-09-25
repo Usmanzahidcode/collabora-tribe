@@ -123,8 +123,8 @@
 			</ul>
 			<a
 				class = "btn btn-outline-success"
-				href = "https://github.com"
-				type = "button">
+				href = "https://github.com/Usmanzahidcode/collabora-tribe"
+				type = "button" target="_blank">
 				Contribute to Platform
 			</a>
 		</div>
