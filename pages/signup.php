@@ -4,6 +4,10 @@
 
 	session_start();
 
+	if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true){
+		header('location: projectcatalog.php');
+	}
+
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
@@ -139,7 +143,7 @@
 							       aria-label = "Confirm Password"
 							       aria-describedby = "addon-wrapping" required/>
 						</div>
-						<div class = "w-100 d-flex justify-content-center">
+						<div class = "w-100 d-flex justify-content-center mb-3">
 							<input
 								class = "btn btn-light w-100"
 								type = "submit"
@@ -147,6 +151,7 @@
 								value = "Submit"
 								id = "submit"/>
 						</div>
+						<a class="text-white" href="signin.php">I already have an account!</a>
 					</form>
 				</div>
 			</div>

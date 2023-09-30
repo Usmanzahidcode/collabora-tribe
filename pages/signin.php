@@ -151,7 +151,7 @@
 							</label>
 						</div>
 
-						<div class = "w-100 d-flex justify-content-center">
+						<div class = "w-100 d-flex justify-content-center mb-3">
 							<input
 								class = "btn btn-light w-100"
 								type = "submit"
@@ -159,6 +159,8 @@
 								value = "Submit"
 								id = "submit"/>
 						</div>
+
+						<a class="text-white" href="signup.php">I don't have an account!</a>
 					</form>
 				</div>
 			</div>

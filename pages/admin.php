@@ -18,6 +18,27 @@
 	$user_bio = $user_data['bio'];
 
 
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$project_id = $_POST['project_id'];
+		if (isset($_POST['Complete'])) {
+			$query = "UPDATE projects SET status = 'complete' WHERE id = ?";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param('i', $project_id);
+
+			$stmt->execute();
+			$stmt->close();
+		} elseif (isset($_POST['Abort'])) {
+			$status_value = 'abort';
+			$query = "UPDATE projects SET status = '$status_value' WHERE id = ?";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param('i', $project_id);
+
+			$stmt->execute();
+			$stmt->close();
+		}
+	}
+
+
 	// Getting user projects
 	$query = "SELECT * FROM projects WHERE author = ?";
 	$stmt = $conn->prepare($query);
@@ -60,7 +81,7 @@
 	<head>
 		<meta charset = "utf-8"/>
 		<meta name = "viewport" content = "width=device-width, initial-scale=1"/>
-		<title>Submit new project | CollaboraTribe</title>
+		<title>Account admin | CollaboraTribe</title>
 		<link rel = "shortcut icon" href = "../assets/favicon.png" type = "image/png">
 		<link href = "../includes/bootstrap/css/bootstrap.min.css" rel = "stylesheet"/>
 		<link rel = "stylesheet" href = "../includes/stylesheet/app.css"/>
@@ -191,7 +212,7 @@
 													Completed project
 												</div>
 												<div class = "card-body">
-													<h1><?php echo $complete_project_count?></h1>
+													<h1><?php echo $complete_project_count ?></h1>
 
 												</div>
 											</div>
@@ -230,10 +251,32 @@
 											<div class = "col-sm-6 mb-3">
 												<div class = "card h-100">
 													<div class = "card-body">
-														<h5 class = "card-title"><?php echo $projects['title'] ?>
+														<?php if ($projects['status'] == 'complete'): ?>
+															<h6 class = "badge text-bg-success">Completed</h6>
+														<?php elseif ($projects['status'] == 'abort'): ?>
+															<h6 class = "badge text-bg-danger">Aborted</h6>
+														<?php elseif ($projects['status'] == 'active'): ?>
+															<h6 class = "badge text-bg-primary">Active</h6>
+														<?php endif; ?>
+														<h5 class = "card-title m-0"><?php echo $projects['title'] ?>
 														</h5>
-														<a href = "#" class = "btn btn-success">Complete</a>
-														<a href = "#" class = "btn btn-danger">Abort</a>
+														<div class = "my-2"><a
+																href = "../pages/project.php?id= <?php echo $projects['id'] ?>"
+																class = "text-decoration-none text-decoration-underline text-dark py-5 fst-italic">Visit
+														                                                                                           Project
+														                                                                                           >></a>
+														</div>
+
+														<form action = "admin.php"
+														      method = "post">
+															<input type = "hidden" name = "project_id"
+															       value = "<?php echo $projects['id'] ?>">
+															<input type = "submit" class = "btn btn-success"
+															       value = "Complete" name = "Complete">
+															<input type = "submit" class = "btn btn-danger"
+															       value = "Abort" name = "Abort">
+														</form>
+
 													</div>
 												</div>
 											</div>

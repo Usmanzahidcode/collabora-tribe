@@ -2,6 +2,10 @@
 	session_start();
 	require_once "../includes/connection.php";
 
+	if (!isset($_SESSION['is_logged_in'])){
+		header('location: signin.php');
+	}
+
 	$comm_is_empty = false;
 	$id = $_GET['id'];
 

@@ -34,7 +34,7 @@
 					mission is to empower students to unleash their potential, foster a
 					sense of community, and fuel the IT revolution.
 				</p>
-				<a href = "#"
+				<a href = "/pages/signup.php"
 				   type = "button"
 				   class = "btn btn-success btn-lg position-relative pb-3">
 					Let's Collaborate
@@ -352,8 +352,8 @@
 				</p>
 				<div
 					class = "d-flex align-items-center justify-content-center gap-4 py-3">
-					<a type = "button" class = "btn btn-lg btn-success">Log In</a>
-					<a type = "button" class = "btn btn-lg btn-warning">Sign Up</a>
+					<a href="pages/signin.php" type = "button" class = "btn btn-lg btn-success">Log In</a>
+					<a href="pages/signup.php" type = "button" class = "btn btn-lg btn-warning">Sign Up</a>
 				</div>
 			</div>
 		</div>
