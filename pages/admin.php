@@ -18,8 +18,6 @@
 	$user_bio = $user_data['bio'];
 
 
-	//random comment
-
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$project_id = $_POST['project_id'];
 		if (isset($_POST['Complete'])) {
