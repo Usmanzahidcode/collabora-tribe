@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
 
                 // Check if the image size is less than 2 MB
-                if ($file_size > 2 * 1024 * 1024) {
+                if ($file_size > 5 * 1024 * 1024) {
                     echo "Image size should be less than 2 MB.";
                     exit;
                 }
