@@ -12,6 +12,12 @@
 /*  scrollbar-width: none;*/
 /*  -ms-overflow-style: none;*/
 /*}*/
+body{
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between !important;
+}
 .hero-cont {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../../assets/runners_on_track_blacknwhite.jpg);
