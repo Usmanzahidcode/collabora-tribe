@@ -340,7 +340,7 @@ include("../includes/header.php");
 
 
 <?php
-include("../includes/footer.html");
+include("../includes/footer.php");
 ?>
 <!-- bootstrap js -->
 <script src="../includes/bootstrap/js/bootstrap.bundle.js"></script>

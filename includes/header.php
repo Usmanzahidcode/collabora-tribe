@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
     $profile_pic = $row['profile_picture'];
 }
 $stmt->close();
-$conn->close();
+
 function isActive($url)
 {
     $currentURL = $_SERVER['PHP_SELF']; // Use $_SERVER['REQUEST_URI'] if URL rewriting is involved.

@@ -16,7 +16,7 @@ $stmt->execute();
 
 
 $result = $stmt->get_result();
-$row = $result->fetch_assoc();
+$project_data = $result->fetch_assoc();
 
 $stmt->close();
 
@@ -24,14 +24,14 @@ $stmt->close();
 // Check if the user has already posted a comment for this project
 $query = "SELECT COUNT(*) as comment_count 
           FROM comments 
-          WHERE user_id = ? 
-          AND post_id = ?";
+          WHERE userid = ? 
+          AND postid = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param('ii', $_SESSION['user_id'], $id);
 $stmt->execute();
 $result = $stmt->get_result();
-$row = $result->fetch_assoc();
-$comment_count = $row['comment_count'];
+$comments_count_row = $result->fetch_assoc();
+$comment_count = $comments_count_row['comment_count'];
 
 
 
@@ -85,7 +85,7 @@ $stmt->close();
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>
-        <?php echo $row['title']; ?>
+        <?php echo $project_data['title']; ?>
     </title>
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/png">
     <link href="../includes/bootstrap/css/bootstrap.css" rel="stylesheet"/>
@@ -102,19 +102,19 @@ include("../includes/header.php");
 <div class="container-md my-3">
     <div class=" border rounded p-4">
         <h4>
-            <span class="badge text-bg-success"><?php echo $row['category']; ?></span>
+            <span class="badge text-bg-success"><?php echo $project_data['category']; ?></span>
         </h4>
         <h1 class="serif display-6 fw-bold my-3">
-            <?php echo $row['title']; ?>
+            <?php echo $project_data['title']; ?>
         </h1>
         <p class="m-0"><strong>Author: </strong><span class="fst-italic">
-					<?php echo $row['author']; ?>
+					<?php echo $project_data['author']; ?>
 				</span></p>
         <p class="fst-italic mt-0">Posted on:
-            <?php echo $row['date']; ?>
+            <?php echo $project_data['date']; ?>
         </p>
         <div class="desc">
-            <?php echo $row['description']; ?>
+            <?php echo $project_data['description']; ?>
         </div>
     </div>
     <h2 class="mt-3">Recent comments</h2>
@@ -127,8 +127,14 @@ include("../includes/header.php");
                         <button type="button" class="btn-close" data-bs-dismiss="alert"
                                 aria-label="Close"></button>
                     </div>
-                <?php else: ?>
+                <?php elseif($already_commented = true): ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        You have already applied on this project!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                    </div>
                 <?php endif; ?>
+
                 <form action="project.php <?php echo '?id=' . $id; ?>" method="post"
                       class="d-flex flex-column flex-md-row gap-3 justify-content-between align-items-start align-items-md-center">
                     <div class="input-group">
@@ -176,9 +182,8 @@ include("../includes/header.php");
 
 
 <?php
-include("../includes/footer.html");
+include("../includes/footer.php");
 
-$conn->close();
 ?>
 
 

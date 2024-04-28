@@ -62,7 +62,7 @@ require_once "../includes/connection.php";
 
 
     <?php
-    include("../includes/footer.html");
+    include("../includes/footer.php");
     ?>
 
     <!-- bootstrap js -->

@@ -61,7 +61,7 @@ include("../includes/header.php");
 </div>
 
 <?php
-include("../includes/footer.html");
+include("../includes/footer.php");
 ?>
 
 <!-- bootstrap js -->
